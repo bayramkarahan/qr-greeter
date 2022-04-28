@@ -19,7 +19,7 @@ os.system("xhost +localhost")
 os.umask(0o077)
 
 loaded_modules = []
-for module in ["lightdm.py","gtkwindow.py"] + os.listdir("module"):
+for module in os.listdir("module"):
     if module in loaded_modules:
         continue
     if not os.path.isfile("module/{}".format(module)):

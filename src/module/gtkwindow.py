@@ -3,6 +3,7 @@ class LoginWindow:
     def __init__(self):
         self.builder = Gtk.Builder()
         self.builder.add_from_file("data/main.ui")
+        self.window = self.builder.get_object("window")
 
 def module_init():
     global loginwindow
@@ -15,5 +16,3 @@ def module_init():
     loginwindow.window.set_size_request(screen.get_width(), screen.get_height())
     loginwindow.window.move(0,0)
     loginwindow.window.show_all()
-    if not lightdm.is_lockscreen():
-        loginwindow.lock_button.hide()

@@ -32,6 +32,7 @@ class lightdm_class:
 
     def login(self,widget=None):
         if self.greeter.get_is_authenticated():
+            True
         elif not self._responsed and self.greeter.get_in_authentication():
             self._responsed = True
             self.greeter.respond(str(self.password))
