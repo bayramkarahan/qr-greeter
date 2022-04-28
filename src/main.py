@@ -14,12 +14,13 @@ from util import *
 
 os.environ["UBUNTU_MENUPROXY"]=""
 os.environ["GDK_CORE_DEVICE_EVENTS"]="1"
+os.environ["GTK_THEME"]="Adwaita-Dark"
 os.system("xhost +localhost")
 
 os.umask(0o077)
 
 loaded_modules = []
-for module in os.listdir("module"):
+for module in ["lightdm"] + os.listdir("module"):
     if module in loaded_modules:
         continue
     if not os.path.isfile("module/{}".format(module)):
@@ -31,4 +32,8 @@ for module in os.listdir("module"):
         loaded_modules.append(module)
 
 os.chdir(os.environ["HOME"])
+settings = Gtk.Settings.get_default()
+settings.set_property('gtk-application-prefer-dark-theme', True)
+settings.set_property('gtk-theme-name','Adwaita-dark')
+
 Gtk.main()

@@ -3,10 +3,6 @@ import sys, os
 import time
 import threading
 
-logfile = open("{}/qr-greeter.log".format(os.environ["HOME"]),"a")
-logfile.write("------------------------\n")
-logfile.flush()
-
 def asynchronous(func):
     def wrapper(*args, **kwargs):
         thread = threading.Thread(target=func, args=args, kwargs=kwargs)
@@ -18,10 +14,7 @@ def asynchronous(func):
 def log(msg,type="log"):
     if len(msg.strip()) == 0:
         return
-    ltime = int(time.time())
-    if logfile:
-        logfile.write("[{}] => {}\n".format(ltime,msg.strip()))
-        logfile.flush()
+    print(msg,file=sys.stderr)
 
 def readfile(path):
     path = "{}/{}".format(os.environ["HOME"],path)

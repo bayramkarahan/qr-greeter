@@ -4,6 +4,16 @@ class LoginWindow:
         self.builder = Gtk.Builder()
         self.builder.add_from_file("data/main.ui")
         self.window = self.builder.get_object("window")
+        self.login = self.builder.get_object("login")
+        self.username = self.builder.get_object("username")
+        self.password = self.builder.get_object("password")
+        self.login.connect("clicked",self.login_event)
+
+    def login_event(self,widget):
+        lightdm.username = self.username.get_text()
+        lightdm.password = self.password.get_text()
+        lightdm.login()
+
 
 def module_init():
     global loginwindow
