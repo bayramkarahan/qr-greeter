@@ -21,6 +21,7 @@ class QrWidget(Gtk.Box):
         self.show_all()
 
     def refresh(self,widget=None):
+        self.show_all()
         self.__web.load_uri("https://giris.eba.gov.tr/EBA_GIRIS/studentQrcode.jsp")
 
     def __load_event(self,webkit,event):
@@ -32,17 +33,18 @@ class QrWidget(Gtk.Box):
             return
         self.__web2.load_uri("https://uygulama-ebaders.eba.gov.tr/ders/FrontEndService//home/user/getuserinfo")
 
-    def __load_event2(webkit,event):
+    def __load_event2(self,webkit,event):
         link=webkit.get_uri()
         resource = webkit.get_main_resource()
         if resource:
             resource.get_data(None,self.__response_data,None)
 
-    def __response_data(resource,result,data=None):
+    def __response_data(self,resource,result,data=None):
         html = resource.get_data_finish(result)
         data = html.decode("utf-8")
         if self.data_action:
             self.data_action(data)
+        self.hide()
 
 if __name__ == "__main__":
     def write(data):
