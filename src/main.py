@@ -14,7 +14,7 @@ from util import *
 
 os.environ["UBUNTU_MENUPROXY"]=""
 os.environ["GDK_CORE_DEVICE_EVENTS"]="1"
-os.environ["GTK_THEME"]="Adwaita-Dark"
+os.environ["GTK_THEME"]="Adwaita-dark"
 os.system("xhost +localhost")
 
 os.umask(0o077)
