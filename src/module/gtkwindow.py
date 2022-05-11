@@ -17,10 +17,10 @@ class LoginWindow:
         self.builder.get_object("qr_button").connect("clicked",self._qr_button_event)
         self.fill_userlist()
         self.apply_css()
-        q = QrWidget()
-        self.builder.get_object("qrbox").add(q)
+        self.qr = QrWidget()
+        self.builder.get_object("qrbox").add(self.qr)
         self.builder.get_object("stack").set_visible_child_name("qr")
-        self.builder.get_object("refresh").connect("clicked",q.refresh)
+        self.builder.get_object("refresh").connect("clicked",self.qr.refresh)
 
     def _main_button_event(self,widget):
         self.builder.get_object("stack").set_visible_child_name("main")
