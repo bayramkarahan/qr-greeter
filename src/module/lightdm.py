@@ -32,14 +32,11 @@ class lightdm_class:
 
     def login(self,widget=None):
         if self.greeter.get_is_authenticated():
-            print("aaa",file=sys.stderr)
             True
         elif not self._responsed and self.greeter.get_in_authentication():
-            print("bbb",file=sys.stderr)
             self._responsed = True
             self.greeter.respond(str(self.password))
         elif not self._pressed:
-            print("ccc",file=sys.stderr)
             self._pressed = True
             self.greeter.authenticate(self.username)
 
@@ -63,6 +60,10 @@ class lightdm_class:
                 error += "Invalid sesion : {}".format(self.session) + "\n"
             try:
                 log("Login success for {}".format(self.username))
+                f = open("/var/lib/lightdm/last-username","w")
+                f.write(self.username)
+                f.flush()
+                f.close()
                 if not self.greeter.start_session_sync(self.session):
                    error += "Failed to start session: {}".format(self.session) + "\n"
             except:
