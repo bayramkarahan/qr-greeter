@@ -1,3 +1,5 @@
+from qr import QrWidget
+
 class LoginWindow:
 
     def __init__(self):
@@ -11,7 +13,22 @@ class LoginWindow:
         self.login.connect("clicked",self.login_event)
         self.username_button.connect("clicked",self._userlist_popever_popup)
         self.builder.get_object("keyboard_show").connect("clicked",self._keyboard_popup)
+        self.builder.get_object("main_button").connect("clicked",self._main_button_event)
+        self.builder.get_object("qr_button").connect("clicked",self._qr_button_event)
         self.fill_userlist()
+        self.apply_css()
+        q = QrWidget()
+        self.builder.get_object("qrbox").add(q)
+        self.builder.get_object("stack").set_visible_child_name("qr")
+        self.builder.get_object("refresh").connect("clicked",q.refresh)
+
+    def _main_button_event(self,widget):
+        self.builder.get_object("stack").set_visible_child_name("main")
+
+    def _qr_button_event(self,widget):
+        self.builder.get_object("stack").set_visible_child_name("qr")
+
+    def apply_css(self):
         screen = Gdk.Screen.get_default()
         provider = Gtk.CssProvider()
         style_context = Gtk.StyleContext()
@@ -21,6 +38,9 @@ class LoginWindow:
         css = """
             * {
                 font-size: 32px;
+            }
+            #qrbox {
+                background: red;
             }
 
         """
