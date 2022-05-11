@@ -2,25 +2,6 @@
 <!-- Generated with glade 3.38.2 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
-  <object class="GtkPopover" id="keyboard">
-    <property name="can-focus">False</property>
-    <child>
-      <object class="GtkBox">
-        <property name="visible">True</property>
-        <property name="can-focus">False</property>
-        <property name="orientation">vertical</property>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-      </object>
-    </child>
-  </object>
   <object class="GtkWindow" id="window">
     <property name="can-focus">False</property>
     <child>
@@ -94,6 +75,7 @@
                 <property name="can-focus">True</property>
                 <property name="visibility">False</property>
                 <property name="invisible-char">●</property>
+                <property name="primary-icon-name">input-keyboard-symbolic</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -131,6 +113,29 @@
             <property name="fill">True</property>
             <property name="position">2</property>
           </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkPopover" id="keyboard">
+    <property name="can-focus">False</property>
+    <property name="relative-to">password</property>
+    <property name="position">bottom</property>
+    <child>
+      <object class="GtkBox" id="keyboard_box">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="halign">center</property>
+        <property name="valign">center</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <placeholder/>
         </child>
       </object>
     </child>

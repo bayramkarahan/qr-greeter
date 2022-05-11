@@ -10,6 +10,7 @@ class LoginWindow:
         self.password = self.builder.get_object("password")
         self.login.connect("clicked",self.login_event)
         self.username_button.connect("clicked",self._userlist_popever_popup)
+        self.password.connect("icon-press",self._keyboard_popup)
         self.fill_userlist()
 
     def fill_userlist(self):
@@ -35,6 +36,9 @@ class LoginWindow:
 
     def _userlist_popever_popup(self,widget):
         self.builder.get_object("userlist_popever").popup()
+
+    def _keyboard_popup(self,a=None,b=None,c=None):
+        self.builder.get_object("keyboard").popup()
 
 def module_init():
     global loginwindow
