@@ -21,15 +21,15 @@ def keyboard():
             def chg_event(widget):
                 vboxb.show_all()
                 vbox.hide()
-            chg=Gtk.Button("⇪")
+            chg=Gtk.Button(label="⇪")
             chg.connect("pressed",chg_event)
             box.add(chg)
         for j in i:
-            key=Gtk.Button(j)
+            key=Gtk.Button(label=j)
             key.connect("pressed",key_event)
             box.add(key)
         if num == 3:
-            delbut=Gtk.Button("⌫")
+            delbut=Gtk.Button(label="⌫")
             delbut.connect("pressed",del_event)
             box.add(delbut)
             
@@ -43,15 +43,15 @@ def keyboard():
             def chgb_event(widget):
                 vbox.show_all()
                 vboxb.hide()
-            chgb=Gtk.Button("⇧")
+            chgb=Gtk.Button(label="⇧")
             chgb.connect("pressed",chgb_event)
             box.add(chgb)
         for j in i:
-            key=Gtk.Button(j)
+            key=Gtk.Button(label=j)
             key.connect("pressed",key_event)
             box.add(key)
         if num == 3:
-            delbut=Gtk.Button("⌫")
+            delbut=Gtk.Button(label="⌫")
             delbut.connect("pressed",del_event)
             box.add(delbut)
     vvbox.add(vbox)

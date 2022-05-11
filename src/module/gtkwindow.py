@@ -10,8 +10,21 @@ class LoginWindow:
         self.password = self.builder.get_object("password")
         self.login.connect("clicked",self.login_event)
         self.username_button.connect("clicked",self._userlist_popever_popup)
-        self.password.connect("icon-press",self._keyboard_popup)
+        self.builder.get_object("keyboard_show").connect("clicked",self._keyboard_popup)
         self.fill_userlist()
+        screen = Gdk.Screen.get_default()
+        provider = Gtk.CssProvider()
+        style_context = Gtk.StyleContext()
+        style_context.add_provider_for_screen(
+            screen, provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        )
+        css = """
+            * {
+                font-size: 32px;
+            }
+
+        """
+        provider.load_from_data(bytes(css,"UTF-8"))
 
     def fill_userlist(self):
         def set_username(widget):
@@ -37,7 +50,7 @@ class LoginWindow:
     def _userlist_popever_popup(self,widget):
         self.builder.get_object("userlist_popever").popup()
 
-    def _keyboard_popup(self,a=None,b=None,c=None):
+    def _keyboard_popup(self,widget):
         self.builder.get_object("keyboard").popup()
 
 def module_init():
@@ -45,7 +58,8 @@ def module_init():
     global screen
     loginwindow = LoginWindow()
     screen = loginwindow.window.get_screen()
-    cursor = Gdk.Cursor(Gdk.CursorType.LEFT_PTR)
+    #cursor = Gdk.Cursor(Gdk.CursorType.LEFT_PTR)
+    cursor = Gdk.Cursor(Gdk.CursorType.BLANK_CURSOR)
     loginwindow.window.get_root_window().set_cursor(cursor)
     loginwindow.window.resize(screen.get_width(), screen.get_height())
     loginwindow.window.set_size_request(screen.get_width(), screen.get_height())
