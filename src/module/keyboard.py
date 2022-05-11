@@ -3,12 +3,14 @@ def keyboard():
     vvbox=Gtk.Box()
     vbox=Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
     vboxb=Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-    buttons=" 1234567890?{[«\nqwertyuıopğü/:\nasdfghjklşi(€\n<zxcvbnmöç.+@¶"
-    buttonsb=" !\"^$%&'#|=*}]»\nQWERTYUIOPĞÜ\\;\nASDFGHJKLŞİ)¢\n>ZXCVBNMÖÇ,-₺_"
+    buttons=" 1234567890?\nqwertyuıopğü\nasdfghjklşi\n<zxcvbnmöç.\n{[«/:(€+@¶"
+    buttonsb=" !\"^$%&'#|=*\nQWERTYUIOPĞÜ\nASDFGHJKLŞİ\n>ZXCVBNMÖÇ,\n}]»\\;)¢-₺_"
 
     
     def del_event(widget):
         password_entry.set_text(password_entry.get_text()[:-1])
+    def clr_event(widget):
+        password_entry.set_text("")
     def key_event(widget):
         password_entry.set_text(password_entry.get_text()+widget.get_label())
     num=0
@@ -32,6 +34,10 @@ def keyboard():
             delbut=Gtk.Button(label="⌫")
             delbut.connect("pressed",del_event)
             box.add(delbut)
+        if num == 5:
+            clrbut=Gtk.Button(label="🗑")
+            clrbut.connect("pressed",clr_event)
+            box.add(clrbut)
             
     num=0
     for i in buttonsb.split("\n"):
@@ -54,6 +60,11 @@ def keyboard():
             delbut=Gtk.Button(label="⌫")
             delbut.connect("pressed",del_event)
             box.add(delbut)
+        if num == 5:
+            clrbut=Gtk.Button(label="🗑")
+            clrbut.connect("pressed",clr_event)
+            box.add(clrbut)
+
     vvbox.add(vbox)
     vvbox.add(vboxb)
     vvbox.show_all()
