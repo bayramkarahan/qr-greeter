@@ -49,7 +49,11 @@ class LoginWindow:
     def fill_userlist(self):
         def set_username(widget):
             self.builder.get_object("username").set_text(widget.get_label())
+        ulist = []
         for name in lightdm.get_user_list():
+            if name.get_name() in ulist:
+                continue
+            ulist.append(name.get_name())
             if name.get_name().endswith("-qr"):
                 continue
             user = Gtk.Button()
@@ -59,7 +63,10 @@ class LoginWindow:
             user.show_all()
         if os.path.exists("/var/lib/lightdm/last-username"):
             f = open("/var/lib/lightdm/last-username","r")
-            self.builder.get_object("username").set_text(f.read())
+            user = f.read()
+            if user.endswith("-qr"):
+                user = user[:-3]
+            self.builder.get_object("username").set_text(user)
 
     def login_event(self,widget):
         lightdm.username = self.username.get_text()
