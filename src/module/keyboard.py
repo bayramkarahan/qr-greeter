@@ -38,6 +38,9 @@ def keyboard():
             clrbut=Gtk.Button(label="🗑")
             clrbut.connect("pressed",clr_event)
             box.add(clrbut)
+            entbut=Gtk.Button(label="enter")
+            entbut.connect("clicked",loginwindow.login_event)
+            box.add(entbut)
 
     num=0
     for i in buttonsb.split("\n"):
@@ -64,6 +67,9 @@ def keyboard():
             clrbut=Gtk.Button(label="🗑")
             clrbut.connect("pressed",clr_event)
             box.add(clrbut)
+            entbut=Gtk.Button(label="enter")
+            entbut.connect("clicked",loginwindow.login_event)
+            box.add(entbut)
 
     vvbox.add(vbox)
     vvbox.add(vboxb)
