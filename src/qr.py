@@ -4,6 +4,7 @@ gi.require_version('Gtk', '3.0')
 gi.require_version('WebKit2', '4.0')
 from gi.repository import Gtk
 from gi.repository import WebKit2
+from gi.repository import Soup
 
 class QrWidget(Gtk.Box):
 
@@ -21,6 +22,7 @@ class QrWidget(Gtk.Box):
         self.show_all()
 
     def refresh(self,widget=None):
+        self.__web.get_website_data_manager().clear(WebKit2.WebsiteDataTypes.ALL,0,None,None,None)
         self.show_all()
         self.__web.load_uri("https://giris.eba.gov.tr/EBA_GIRIS/studentQrcode.jsp")
 

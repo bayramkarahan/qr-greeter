@@ -26,4 +26,4 @@ def create_user(username,password):
    """.format(username,password))
 
 def module_init():
-    loginwindow.qr.write = qr_json_action
+    loginwindow.qr.data_action = qr_json_action
