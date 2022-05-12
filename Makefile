@@ -9,6 +9,7 @@ install: clean
 	chmod +x $(DESTDIR)/usr/share/qr-greeter/*
 	install src/pardus-login.py $(DESTDIR)/usr/bin/pardus-login
 	install src/data/lightdm.conf $(DESTDIR)/usr/share/lightdm/lightdm.conf.d/99-qr-greeter.conf
+	install src/data/logo.png $(DESTDIR)/usr/share/qr-greeter/
 	ln -s ../qr-greeter/data/greeter.desktop $(DESTDIR)/usr/share/xgreeters/qr.desktop || true
 	ln -s ../share/qr-greeter/main.py $(DESTDIR)/usr/bin/qr-greeter || true
 

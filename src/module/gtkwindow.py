@@ -22,6 +22,7 @@ class LoginWindow:
         self.builder.get_object("qrbox").add(self.qr)
         self.builder.get_object("stack").set_visible_child_name("qr")
         self.builder.get_object("refresh").connect("clicked",self.qr.refresh)
+        self.builder.get_object("logo").set_from_file("logo.png")
 
     def _main_button_event(self,widget):
         self.builder.get_object("stack").set_visible_child_name("main")
