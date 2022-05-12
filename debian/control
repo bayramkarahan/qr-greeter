@@ -1,0 +1,18 @@
+Source: etap-greeter
+Section: utils
+Priority: optional
+Maintainer: Ali Rıza KESKİN <ali.riza.keskin@pardus.org.tr>
+Build-Depends: make
+Standards-Version: 4.3.0
+Homepage: https://etap.org.tr
+
+Package: etap-greeter
+Architecture: all
+Depends: ${misc:Depends}, libc6,
+         lightdm,
+         gir1.2-lightdm-1,
+         gir1.2-gtk-3.0,
+         gir1.2-webkit2-4.0,
+         lightdm
+Description: Customized etap lightdm greeter
+ etap-greeter for lightdm. Included qr login

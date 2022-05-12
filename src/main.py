@@ -7,6 +7,13 @@ if os.getuid() != 0:
     print("Permission denied",file=sys.stderr)
     sys.exit(1)
 
+os.system("""
+xset s off || true
+xset dpms 0 0 0 || true
+xset -dpms s off || true
+xset s noblank || true
+""")
+
 if not os.path.isdir("module"):
     os.chdir("/usr/share/qr-greeter")
 
