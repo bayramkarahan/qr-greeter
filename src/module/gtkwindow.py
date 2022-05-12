@@ -77,6 +77,7 @@ def module_init():
     global loginwindow
     global screen
     loginwindow = LoginWindow()
+    lightdm.msg_handler = log
     screen = loginwindow.window.get_screen()
     #cursor = Gdk.Cursor(Gdk.CursorType.LEFT_PTR)
     cursor = Gdk.Cursor(Gdk.CursorType.BLANK_CURSOR)
