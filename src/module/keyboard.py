@@ -3,10 +3,10 @@ def keyboard():
     vvbox=Gtk.Box()
     vbox=Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
     vboxb=Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-    buttons=" 1234567890?\nqwertyuıopğü\nasdfghjklşi\n<zxcvbnmöç.\n{[«/:(€+@¶"
-    buttonsb=" !\"^$%&'#|=*\nQWERTYUIOPĞÜ\nASDFGHJKLŞİ\n>ZXCVBNMÖÇ,\n}]»\\;)¢-₺_"
+    buttons=" 1234567890?\nqwertyuıopğü\nasdfghjklşi\n<zxcvbnmöç.\n{[«/:(-_+@"
+    buttonsb=" !\"^$%&'#|=*\nQWERTYUIOPĞÜ\nASDFGHJKLŞİ\n>ZXCVBNMÖÇ,\n}]»\\;)¢₺€¶"
 
-    
+
     def del_event(widget):
         password_entry.set_text(password_entry.get_text()[:-1])
     def clr_event(widget):
@@ -38,7 +38,7 @@ def keyboard():
             clrbut=Gtk.Button(label="🗑")
             clrbut.connect("pressed",clr_event)
             box.add(clrbut)
-            
+
     num=0
     for i in buttonsb.split("\n"):
         box=Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL)
