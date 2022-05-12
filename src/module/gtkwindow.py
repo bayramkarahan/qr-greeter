@@ -12,6 +12,7 @@ class LoginWindow:
         self.password = self.builder.get_object("password")
         self.login.connect("clicked",self.login_event)
         self.username_button.connect("clicked",self._userlist_popever_popup)
+        self.password.connect("focus-in-event",self._keyboard_popup)
         self.builder.get_object("keyboard_show").connect("clicked",self._keyboard_popup)
         self.builder.get_object("main_button").connect("clicked",self._main_button_event)
         self.builder.get_object("qr_button").connect("clicked",self._qr_button_event)
@@ -77,7 +78,7 @@ class LoginWindow:
     def _userlist_popever_popup(self,widget):
         self.builder.get_object("userlist_popever").popup()
 
-    def _keyboard_popup(self,widget):
+    def _keyboard_popup(self,widget=None,a=None):
         self.builder.get_object("keyboard").popup()
 
 def module_init():
