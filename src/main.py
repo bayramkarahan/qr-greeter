@@ -3,6 +3,10 @@ import os
 import sys
 import subprocess
 
+if os.getuid() != 0:
+    print("Permission denied",file=sys.stderr)
+    sys.exit(1)
+
 if not os.path.isdir("module"):
     os.chdir("/usr/share/qr-greeter")
 
