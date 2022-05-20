@@ -9,7 +9,7 @@ class lightdm_class:
     def __init__(self):
         self.username = ""
         self.password = ""
-        self.session = ""
+        self.session = "lightdm-xsession"
         self.greeter = LightDM.Greeter()
         self.msg_handler = None
         self.login_handler = None
