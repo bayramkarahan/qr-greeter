@@ -3,8 +3,8 @@ def keyboard():
     vvbox=Gtk.Box()
     vbox=Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
     vboxb=Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
-    buttons=" 1234567890?\nqwertyuıopğü\nasdfghjklşi\n<zxcvbnmöç.\n{[«/:(-_+@"
-    buttonsb=" !\"^$%&'#|=*\nQWERTYUIOPĞÜ\nASDFGHJKLŞİ\n>ZXCVBNMÖÇ,\n}]»\\;)¢₺€¶"
+    buttons=" 1234567890?\nfgğıodrnhpqw\nuieaütkmlyşx\n<jövcçzsb.,\n{[«/:(-_+@"
+    buttonsb=" !\"^$%&'#|=*\nFGĞIODRNHPQW\nUİEAÜTKMLYŞX\n>JÖVCÇZSB:;\n}]»\\;)¢₺€¶"
 
 
     def del_event(widget):
