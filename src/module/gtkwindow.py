@@ -88,8 +88,8 @@ def module_init():
     loginwindow = LoginWindow()
     lightdm.msg_handler = log
     screen = loginwindow.window.get_screen()
-    #cursor = Gdk.Cursor(Gdk.CursorType.LEFT_PTR)
-    cursor = Gdk.Cursor(Gdk.CursorType.BLANK_CURSOR)
+    cursor = Gdk.Cursor(Gdk.CursorType.LEFT_PTR)
+    #cursor = Gdk.Cursor(Gdk.CursorType.BLANK_CURSOR)
     loginwindow.window.get_root_window().set_cursor(cursor)
     loginwindow.window.resize(screen.get_width(), screen.get_height())
     loginwindow.window.set_size_request(screen.get_width(), screen.get_height())
