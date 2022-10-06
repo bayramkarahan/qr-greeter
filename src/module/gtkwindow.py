@@ -23,6 +23,9 @@ class LoginWindow:
         self.builder.get_object("stack").set_visible_child_name("qr")
         self.builder.get_object("refresh").connect("clicked",self.qr.refresh)
         self.builder.get_object("logo").set_from_file("logo.png")
+        self.builder.get_object("shutdown").connect("clicked",lightdm.shutdown)
+        self.builder.get_object("reboot").connect("clicked",lightdm.reboot)
+
 
     def _main_button_event(self,widget):
         self.builder.get_object("stack").set_visible_child_name("main")
@@ -88,8 +91,8 @@ def module_init():
     loginwindow = LoginWindow()
     lightdm.msg_handler = log
     screen = loginwindow.window.get_screen()
-    cursor = Gdk.Cursor(Gdk.CursorType.LEFT_PTR)
-    #cursor = Gdk.Cursor(Gdk.CursorType.BLANK_CURSOR)
+    #cursor = Gdk.Cursor(Gdk.CursorType.LEFT_PTR)
+    cursor = Gdk.Cursor(Gdk.CursorType.BLANK_CURSOR)
     loginwindow.window.get_root_window().set_cursor(cursor)
     loginwindow.window.resize(screen.get_width(), screen.get_height())
     loginwindow.window.set_size_request(screen.get_width(), screen.get_height())
