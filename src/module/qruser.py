@@ -38,6 +38,7 @@ def username_prepare(u):
     u = u.replace("Ö","o")
     u = u.replace("Ş","s")
     u = u.replace("Ü","u")
+    u = u.replace(" ","-")
     u = u.lower()
 
     return u
