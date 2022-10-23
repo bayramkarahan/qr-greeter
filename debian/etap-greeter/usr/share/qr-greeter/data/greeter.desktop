@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=QR Greeter
-Comment=This runs the Pardus greeter, it should only be run from LightDM
-Exec=/usr/bin/qr-greeter
-Type=Application
-X-Ubuntu-Gettext-Domain=lightdm
