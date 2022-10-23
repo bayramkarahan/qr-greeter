@@ -1,0 +1,11 @@
+Package: etap-greeter
+Version: 0.1.0
+Architecture: all
+Maintainer: Ali Rıza KESKİN <ali.riza.keskin@pardus.org.tr>
+Installed-Size: 105
+Depends: libc6, lightdm, gir1.2-lightdm-1, gir1.2-gtk-3.0, gir1.2-webkit2-4.0
+Section: utils
+Priority: optional
+Homepage: https://etap.org.tr
+Description: Customized etap lightdm greeter
+ etap-greeter for lightdm. Included qr login
