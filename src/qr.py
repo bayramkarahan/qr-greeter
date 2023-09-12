@@ -11,7 +11,7 @@ class QrWidget(Gtk.Box):
     def __init__(self):
         super().__init__()
         self.__web=WebKit2.WebView()
-        self.__web.set_size_request(400,550)
+        self.__web.set_size_request(400,700)
         self.__web2=WebKit2.WebView()
         self.__web.load_uri("https://giris.eba.gov.tr/EBA_GIRIS/studentQrcode.jsp")
         self.__web.connect("load-changed",self.__load_event)
